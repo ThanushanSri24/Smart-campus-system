@@ -5,27 +5,15 @@ import com.smartcampus.exception.SensorUnavilableException;
 import com.smartcampus.model.Sensor;
 import com.smartcampus.model.SensorReading;
 
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Produces;
-
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
-
-
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Part 4 - Sensor Reading Sub-Resource
- *
- * Handles /api/v1/sensors/{sensorId}/readings
- *
- * This class is NOT registered directly with JAX-RS — it is instantiated and
- * returned by the sub-resource locator in SensorResource. JAX-RS then dispatches
- * the remaining path to methods in this class.
- */
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class SensorReadingResource {

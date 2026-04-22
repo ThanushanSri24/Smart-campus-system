@@ -11,11 +11,11 @@ import com.smartcampus.resource.SensorResource;
 import com.smartcampus.resource.DiscoveryResource;
 import com.smartcampus.resource.RoomResource;
 import com.smartcampus.resource.SensorResource;
-import jakarta.ws.rs.ApplicationPath;
+
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 
-
+import javax.ws.rs.ApplicationPath;
 
 
 @ApplicationPath("/api/v1")
