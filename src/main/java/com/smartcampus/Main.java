@@ -1,17 +1,41 @@
 package com.smartcampus;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.servlet.ServletContainer;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+import java.rmi.ServerError;
+import java.util.logging.Logger;
+
+
+public class Main {
+
+    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
+    public static final int PORT = 8080;
+
+    public static void main(String[] args) throws Exception {
+        Server server = new Server(PORT);
+
+        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.NO_SESSIONS);
+        context.setContextPath("/");
+
+        // Mount Jersey servlet — serves everything under /api/v1/*
+        ServletHolder jerseyServlet = context.addServlet(ServletContainer.class, "/api/v1/*");
+        jerseyServlet.setInitOrder(0);
+        jerseyServlet.setInitParameter(
+                "jakarta.ws.rs.Application",
+                SmartCampusApplication.class.getCanonicalName()
+        );
+
+        server.setHandler(context);
+        server.start();
+
+        LOGGER.info("========================================");
+        LOGGER.info(" Smart Campus API running on port " + PORT);
+        LOGGER.info(" Base URL: http://localhost:" + PORT + "/api/v1");
+        LOGGER.info("========================================");
+
+        server.join();
     }
 }
