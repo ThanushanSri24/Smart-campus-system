@@ -22,10 +22,10 @@
     </properties>
 
     <dependencies>
-        <!-- Jersey + Jetty container -->
+        <!-- Jersey servlet container -->
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-jetty-http</artifactId>
+            <artifactId>jersey-container-servlet</artifactId>
             <version>${jersey.version}</version>
         </dependency>
 
@@ -43,7 +43,7 @@
             <version>${jersey.version}</version>
         </dependency>
 
-        <!-- HK2 injection -->
+        <!-- HK2 dependency injection -->
         <dependency>
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
@@ -57,23 +57,24 @@
             <version>2.15.2</version>
         </dependency>
 
-        <!-- Jetty server -->
+        <!-- Jetty embedded server -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
             <version>${jetty.version}</version>
         </dependency>
-        
+
+        <!-- Jetty servlet support -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
             <version>${jetty.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Shade plugin: builds a fat JAR with all dependencies -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -105,6 +106,7 @@
                 </executions>
             </plugin>
 
+            <!-- Compiler plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

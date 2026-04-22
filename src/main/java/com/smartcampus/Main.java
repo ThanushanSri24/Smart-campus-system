@@ -3,14 +3,14 @@ package com.smartcampus;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.servlet.ServletContainer;
 
-
-import javax.servlet.Servlet;
-import javax.servlet.ServletContainerInitializer;
-import java.rmi.ServerError;
 import java.util.logging.Logger;
 
-
+/**
+ * Main entry point. Starts an embedded Jetty server on port 8080
+ * and mounts the JAX-RS application at /api/v1/*.
+ */
 public class Main {
 
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
@@ -23,7 +23,7 @@ public class Main {
         context.setContextPath("/");
 
         // Mount Jersey servlet — serves everything under /api/v1/*
-        ServletHolder jerseyServlet = context.addServlet((Class<? extends Servlet>) ServletContainerInitializer.class, "/api/v1/*");
+        ServletHolder jerseyServlet = context.addServlet(ServletContainer.class, "/api/v1/*");
         jerseyServlet.setInitOrder(0);
         jerseyServlet.setInitParameter(
                 "jakarta.ws.rs.Application",
