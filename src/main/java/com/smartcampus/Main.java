@@ -7,10 +7,7 @@ import org.glassfish.jersey.servlet.ServletContainer;
 
 import java.util.logging.Logger;
 
-/**
- * Main entry point. Starts an embedded Jetty server on port 8080
- * and mounts the JAX-RS application at /api/v1/*.
- */
+
 public class Main {
 
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
