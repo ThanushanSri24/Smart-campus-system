@@ -1,8 +1,10 @@
 package com.smartcampus.config;
 
 // Import JAX-RS classes for configuration
-import jakarta.ws.rs.ApplicationPath;
-import jakarta.ws.rs.core.Application;
+
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
 /*
  * This class is used to configure the base path for the REST API.
