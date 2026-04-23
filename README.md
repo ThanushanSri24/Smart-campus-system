@@ -256,4 +256,4 @@ Returns `403 Forbidden`.
 
 
 ## report 
-`/Report.pdf`
+`[View Report](Report.pdf)`
