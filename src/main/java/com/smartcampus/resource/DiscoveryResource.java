@@ -25,7 +25,7 @@ public class DiscoveryResource {
         // Admin contact
         Map<String, String> contact = new HashMap<>();
         contact.put("name", "Campus Facilities Admin");
-        contact.put("email", "admin@smartcampus.ac.uk");
+        contact.put("email", "thanushan@smartcampus.ac.uk");
         discovery.put("contact", contact);
 
         // HATEOAS-style resource links
