@@ -251,3 +251,9 @@ Returns `403 Forbidden`.
 - **Jackson** (JSON serialisation via `JacksonFeature`)
 - **In-memory storage** — `ConcurrentHashMap` for thread safety, `ArrayList` for readings
 - **Maven** build system
+
+
+
+
+## report 
+`/Report.pdf`
