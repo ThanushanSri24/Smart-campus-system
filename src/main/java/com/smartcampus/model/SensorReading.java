@@ -5,6 +5,8 @@ public class SensorReading {
     private long timestamp;
     private double value;
 
+    public SensorReading() {}
+
 
     public SensorReading(String id, long timestamp, double value) {
         this.id = id;
