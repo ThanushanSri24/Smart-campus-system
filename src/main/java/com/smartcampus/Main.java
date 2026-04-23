@@ -23,7 +23,7 @@ public class Main {
         ServletHolder jerseyServlet = context.addServlet(ServletContainer.class, "/api/v1/*");
         jerseyServlet.setInitOrder(0);
         jerseyServlet.setInitParameter(
-                "jakarta.ws.rs.Application",
+                "javax.ws.rs.Application",
                 SmartCampusApplication.class.getCanonicalName()
         );
 
